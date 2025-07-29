@@ -5,9 +5,12 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from huggingface_hub import hf_hub_download
+import os
 
-nltk.download('punkt')
-nltk.download('stopwords')
+nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
+nltk.download('punkt', download_dir=nltk_data_dir)
+nltk.download('stopwords', download_dir=nltk_data_dir)
+nltk.data.path.append(nltk_data_dir)
 
 ps = PorterStemmer()
 
